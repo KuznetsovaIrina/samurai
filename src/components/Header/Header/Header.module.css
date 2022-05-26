@@ -1,0 +1,39 @@
+.header {
+  grid-area: header;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  transform: rotate(-1deg);
+  z-index: 2;
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 16%;
+  right: 0;
+  height: 2px;
+  background: #2193b0;
+  background: -webkit-linear-gradient(to right, #2193b0, #6dd5ed);
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+  height: 50px;
+  position: relative;
+}
+
+.wrap::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100px;
+  bottom: 100%;
+  left: 0;
+  background-color: #fff;
+}

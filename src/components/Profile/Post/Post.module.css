@@ -1,0 +1,35 @@
+.item {
+  position: relative;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: flex-start;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.image {
+  border-radius: 50%;
+  margin-right: 15px;
+  min-width: 50px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  background-color: #efefef;
+}
+
+.image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media(max-width: 790px) {
+  .item {
+    width: 100%;
+  }
+}

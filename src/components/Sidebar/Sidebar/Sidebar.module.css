@@ -1,0 +1,41 @@
+.sidebar {
+  grid-area: sidebar;
+  background-color: #fff;
+  padding: 50px 20px;
+}
+
+@media(max-width: 790px) {
+  .sidebar {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-top: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: #e0230d;
+}
+
+.menu li:first-child {
+  margin-top: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

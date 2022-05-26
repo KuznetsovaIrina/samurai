@@ -1,0 +1,48 @@
+.intro {
+  display: flex;
+  align-items: center;
+}
+
+.intro img {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.intro ul {
+  list-style: none;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.intro li {
+  margin-top: 5px;
+}
+
+.intro li:first-child {
+  margin-top: 0;
+}
+
+.intro li b {
+  font-weight: 500;
+}
+
+.name {
+  font-size: 18px;
+  display: block;
+  font-weight: 600;
+}
+
+@media(max-width: 790px) {
+  .intro {
+    align-items: flex-start;
+  }
+  .intro img {
+    max-width: 90px;
+  }
+  .intro li {
+    margin-top: 10px;
+  }
+  .intro li b {
+    display: block;
+  }
+}

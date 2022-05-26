@@ -1,0 +1,23 @@
+.items {
+  list-style: none;
+  columns: 4 auto;
+  column-gap: 20px;
+}
+
+@media(max-width: 1290px) {
+  .items {
+    columns: 3 auto;
+  }
+}
+
+@media(max-width: 990px) {
+  .items {
+    columns: 2 auto;
+  }
+}
+
+@media(max-width: 790px) {
+  .items {
+    columns: 1 auto;
+  }
+}
