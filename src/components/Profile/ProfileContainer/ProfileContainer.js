@@ -1,34 +1,26 @@
 import React from 'react';
-import UserInfo from '../UserInfo/UserInfo';
-import AddPost from '../AddPost/AddPost';
-import PostsList from '../PostList/PostList';
+import Profile from './../Profile/Profile';
 import { addPostActionCreator, updateNewPostTextActionCreator } from './../../../redux/profile-reducer';
-import StoreContext from './../../../StoreContext';
+import { connect } from 'react-redux';
 
-const ProfileContainer = () => {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-          const state = store.getState().profilePage;
+const mapStateToProps = (state) => {
+  return {
+    posts: state.profilePage.posts,
+    newPostText: state.profilePage.newPostText
+  };
+};
 
-          const addPost = (newPost) => {
-            store.dispatch(addPostActionCreator(newPost));
-          };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPost: (newPost) => {
+      dispatch(addPostActionCreator(newPost));
+    },
+    updateNewPostText: (text) => {
+      dispatch(updateNewPostTextActionCreator(text));
+    }
+  };
+};
 
-          const updateNewPostText = (text) => {
-            store.dispatch(updateNewPostTextActionCreator(text));
-          };
-
-          return (
-            <div className="content-paddings">
-              <UserInfo />
-              <AddPost newPostText={state.newPostText} addPost={addPost} updateNewPostText={updateNewPostText} />
-              <PostsList posts={state.posts} />
-            </div>
-          );
-      }}
-    </StoreContext.Consumer>
-  );
-}
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 export default ProfileContainer;

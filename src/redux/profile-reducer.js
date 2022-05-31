@@ -37,32 +37,32 @@ const initialState = {
     newPostText: '',
 };
 
+// В редьюсере меняем только то, что изменилось!
+
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            state.posts.push({
+            const newPost = {
                 id: Date.now(),
                 text: action.newPost.text,
                 image: action.newPost.image
-            });
-            state.newPostText = '';
-            return state;
+            };
+            return {
+                ...state,
+                posts: [newPost, ...state.posts],
+                newPostText: ''
+            }
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newPostText;
-            return state;
+            return {
+                ...state,
+                newPostText: action.newPostText,
+            }
         default:
             return state;
     }
 };
 
-export const addPostActionCreator = newPost => ({
-    type: ADD_POST,
-    newPost,
-});
-  
-export const updateNewPostTextActionCreator = newText => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newPostText: newText,
-});
+export const addPostActionCreator = newPost => ({type: ADD_POST, newPost});
+export const updateNewPostTextActionCreator = newText => ({type: UPDATE_NEW_POST_TEXT, newPostText: newText});
 
 export default profileReducer;

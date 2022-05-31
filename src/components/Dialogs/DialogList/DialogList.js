@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from '../Dialog/Dialog';
-import s from '../DialogsContainer/Dialogs.module.css';
+import s from './../Dialogs/Dialogs.module.css';
 
 const DialogList = (props) => {
   return (

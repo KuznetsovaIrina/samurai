@@ -1,38 +1,27 @@
 import React from 'react';
-import s from './Dialogs.module.css';
-import AddMessage from '../AddMessage/AddMessage';
-import DialogList from './../DialogList/DialogList';
-import MessageList from './../MessageList/MessageList';
+import Dialogs from './../Dialogs/Dialogs';
+import { connect } from 'react-redux';
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../../redux/dialogs-reducer';
-import StoreContext from './../../../StoreContext';
 
-const DialogsContainer = () => {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-          const state = store.getState().dialogsPage;
-    
-          const addMessage = (newMessage) => {
-            store.dispatch(addMessageActionCreator(newMessage));
-          };
-        
-          const updateNewMessageText = (text) => {
-            store.dispatch(updateNewMessageTextActionCreator(text))
-          };
+const mapStateToProps = (state) => {
+  return {
+    dialogs: state.dialogsPage.dialogs,
+    messages: state.dialogsPage.messages,
+    newMessageText: state.dialogsPage.newMessageText
+  };
+};
 
-          return (
-            <div className={`content-dialogs ${s.dialogs}`}>
-              <DialogList dialogs={state.dialogs}  />
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addMessage: (newMessage) => {
+      dispatch(addMessageActionCreator(newMessage));
+    },
+    updateNewMessageText: (text) => {
+      dispatch(updateNewMessageTextActionCreator(text));
+    }
+  };
+};
 
-              <div className={s.chat}>
-                <MessageList messages={state.messages} />
-                <AddMessage newMessageText={state.newMessageText} addMessage={addMessage} updateNewMessageText={updateNewMessageText}  />
-              </div>
-            </div>
-          );
-      }}
-    </StoreContext.Consumer>
-  );
-}
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

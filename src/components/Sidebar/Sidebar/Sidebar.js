@@ -11,7 +11,9 @@ const Sidebar = () => {
             <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/dialogs">Messages</NavLink></li>
             <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/news">News</NavLink></li>
             <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/music">Music</NavLink></li>
-            <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/settings">Settings</NavLink></li>
+            <hr />
+            <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/settings"><small>Settings</small></NavLink></li>
+            <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/users"><small>Users</small></NavLink></li>
           </ul>
         </nav>
       </aside>
