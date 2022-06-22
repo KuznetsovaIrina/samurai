@@ -1,27 +1,38 @@
 import React from 'react';
 import s from './Users.module.css';
-// import userPhoto from './../../assets/images/avatar-default.jpg';
+import { NavLink } from 'react-router-dom';
 
-const User = (props) => {
-    const userPhoto = 'https://loremflickr.com/180/180/?random=' + props.user.id;
+const User = ({
+        followingInProgress,
+        isAuth,
+        user,
+        unfollow,
+        follow }) => {
+
+    const userDefaultPhoto = 'https://loremflickr.com/180/180/?random=' + user.id;
+
     return (
         <li className={s.item}>
             <div className={s.avatar}>
-                <img width="90" height="90" src={props.user.photos.small ? props.user.photos.small : userPhoto} alt={props.user.name} />
+                <img width="90" height="90" src={user.photos.small ? user.photos.small : userDefaultPhoto} alt={user.name} />
             </div>
             <div>
-                <div className={s.name}>
-                    {props.user.name}
-                </div>
+                <NavLink to={`/profile/${user.id}`} className={s.name}>
+                    {user.name}
+                </NavLink>
                 <p className={s.status}>
-                    {props.user.status}        
+                    {user.status}        
                 </p>
             </div>
-            { props.user.followed
-                ? <button className={`button ${s.button}`} onClick={() => { props.unfollow(props.user.id) }}>Unfollow</button>
-                : <button className={`button ${s.button}`} onClick={() => { props.follow(props.user.id) }}>Follow</button> }
+            { isAuth ? user.followed
+                ? <button className={`button ${s.button}`}
+                    disabled={followingInProgress.some(id => id === user.id)}
+                    onClick={() => { unfollow(user.id)}}>Unfollow</button>
+                : <button className={`button ${s.button}`}
+                    disabled={followingInProgress.some(id => id === user.id)}
+                    onClick={() => { follow(user.id)}}>Follow</button> : '' }
         </li>
-    );
+    )
 }
 
 export default User;

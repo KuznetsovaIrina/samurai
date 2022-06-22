@@ -1,5 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const ADD_MESSAGE = 'dialog/ADD-MESSAGE';
 
 const initialState = {
     dialogs: [
@@ -87,7 +86,6 @@ const initialState = {
             avatar: 'https://pixelbox.ru/wp-content/uploads/2020/12/ava-twitch-96.jpg'
         }
     ],
-    newMessageText: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -105,17 +103,11 @@ const dialogsReducer = (state = initialState, action) => {
                 messages: [...state.messages, newMessage],
                 newMessageText: '',
             }
-        case UPDATE_NEW_MESSAGE_TEXT:
-            return {
-                ...state,
-                newMessageText: action.newMessageText,
-            }
         default:
             return state;
     }
 };
 
-export const addMessageActionCreator = newMessage => ({type: ADD_MESSAGE, newMessage});
-export const updateNewMessageTextActionCreator = newText => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: newText});
+export const addMessage = newMessage => ({type: ADD_MESSAGE, newMessage});
 
 export default dialogsReducer;

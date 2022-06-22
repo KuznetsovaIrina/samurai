@@ -32,6 +32,46 @@
   font-weight: 600;
 }
 
+.contacts a {
+  margin-right: 10px;
+  margin-top: 5px;
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.job {
+  font-size: 12px;
+  margin-top: 20px !important;
+  display: block;
+}
+
+.job span {
+  margin-left: 10px;
+}
+
+.job b {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.status span,
+.status input {
+  display: block;
+}
+
+.status input {
+  border: none;
+  background: none;
+}
+
+.status input:focus {
+  outline: 5px solid #fff;
+  background-color: #fff;
+}
+
 @media(max-width: 790px) {
   .intro {
     align-items: flex-start;

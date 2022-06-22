@@ -1,4 +1,6 @@
 import React from 'react';
+import {withAuthRedirect} from './../../hoc/withAuthRedirect';
+import {connect} from 'react-redux';
 
 const Settings = () => {
     return (
@@ -8,4 +10,10 @@ const Settings = () => {
     );
 }
 
-export default Settings;
+const mapStateToProps = (state) => {
+    return {}
+}
+
+const SettingsContainer = connect(mapStateToProps)(withAuthRedirect(Settings));
+
+export default SettingsContainer;

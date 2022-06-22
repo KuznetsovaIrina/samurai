@@ -7,7 +7,6 @@ const Sidebar = () => {
       <aside className={s.sidebar}>
         <nav className={s.menu}>
           <ul>
-            <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/">Profile</NavLink></li>
             <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/dialogs">Messages</NavLink></li>
             <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/news">News</NavLink></li>
             <li><NavLink className = { navData => navData.isActive ? s.active : '' } to="/music">Music</NavLink></li>

@@ -18,6 +18,11 @@
     color: red;
 }
 
+.status {
+    overflow-wrap: break-word;
+    max-width: 1200px;
+}
+
 .item {
     display: flex;
     align-items: center;
@@ -47,6 +52,12 @@
     font-size: 22px;
     font-weight: 500;
     display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.name:hover {
+    color: #107791;
 }
 
 .status {
@@ -70,4 +81,9 @@
 
 .button:hover {
     background-color: #17829c;
+}
+
+.button:disabled {
+    opacity: .4;
+    cursor: default;
 }

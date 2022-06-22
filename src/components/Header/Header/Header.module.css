@@ -22,7 +22,7 @@
 .wrap {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 20px;
   height: 50px;
   position: relative;
@@ -36,4 +36,26 @@
   bottom: 100%;
   left: 0;
   background-color: #fff;
+}
+
+.userPanel {
+  margin-left: auto;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.logout {
+  border: none;
+  background: none;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.userPanel a {
+  text-decoration: none;
+  color: #e0230d;
+  font-weight: 700;
 }

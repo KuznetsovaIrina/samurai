@@ -110,6 +110,47 @@ hr {
   box-shadow: 0 0 2px #2193b0;
 }
 
+.form input[type="text"],
+.form input[type="password"] {
+  display: block;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+}
+
+.checkbox {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.checkbox span {
+  flex: 1;
+  display: block;
+  width: 100%;
+}
+
+.checkbox div {
+  width: auto !important;
+  margin-bottom: 0;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.errors {
+  width: 100%;
+  color: tomato;
+  margin-top: 5px;
+}
+
 /*
   Buttons
 */
